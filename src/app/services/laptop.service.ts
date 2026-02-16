@@ -8,7 +8,7 @@ import { Laptop } from '../models/laptop';
 })
 export class LaptopService {
 
-  private apiUrl = 'https://localhost:7059/api/Lapptop'; // tu endpoint .NET
+  private apiUrl = 'https://localhost:7059/api/Lapptop';
 
   constructor(private http: HttpClient) {}
 
@@ -29,14 +29,15 @@ export class LaptopService {
 
 
   // PUT
-  updateLaptop(id: number, laptop: Laptop): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${id}`, laptop);
+  updateLaptop(id: number, laptop: Laptop) {
+    return this.http.put(`${this.apiUrl}/${id}`, laptop, { responseType: 'text' });
   }
 
   // DELETE
-  deleteLaptop(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  deleteLaptop(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
   }
+
 }
 
 
