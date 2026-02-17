@@ -78,7 +78,7 @@ Pasos para ejecutar:
 
 Con eso la aplicación ya estaria disponible
 
-#  🔐 Flujo de Autenticación
+#  Flujo de Autenticación
 
   - El usuario inicia sesión.
 
@@ -92,6 +92,7 @@ Con eso la aplicación ya estaria disponible
 
   - Los endpoints protegidos usan [Authorize].
 
-👨‍💻 Autor
+
+#  Autor
 
 Andrey Quesada
