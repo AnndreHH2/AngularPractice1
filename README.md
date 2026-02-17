@@ -54,9 +54,9 @@ Ahora, enfocandonos en el Frontend.
 
 Pasos para ejecutar: 
 
-  1. Abrimos una terminal y vamos a cd consumoApi.
-  2. npm install.
-  3. ng serve.
+  - Abrimos una terminal y vamos a cd consumoApi.
+  - npm install.
+  - ng serve.
 
 Con eso la aplicación ya estaria disponible
 
