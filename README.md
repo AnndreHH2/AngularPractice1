@@ -10,7 +10,17 @@ Aplicación Fullstack desarrollada con:
 
  - Base de datos con Stored Procedures
 
-Carpetas importantes: ConsumoApi, Script y PruebaApi.
+#  Estructura del Proyecto
+
+Carpetas principales:
+
+- ConsumoApi: Frontend.
+  
+- Script: Script de base de datos.
+  
+- PruebaApi: Backend.
+
+#  Configuración de Base de Datos
 
 Dentro de la carpeta Script, encontraremos el Script, ejecuta el archivo .sql para: 
 
@@ -35,6 +45,8 @@ Dentro de la carpeta Script, encontraremos el Script, ejecuta el archivo .sql pa
     'User'
     );
 
+# Ejecutar el Backend (API)
+
 Una vez terminada lo relacionado con la base de datos, vamos con la carpeta PruebaApi, dicha carpeta es el backend de la aplicación.
 
 Detalles importantes: 
@@ -45,22 +57,28 @@ Detalles importantes:
 
   - Pasos para ejecutar:
       1. Abrimos una terminal y vamos a cd PruebaApi.
+         
       2. dotnet restore.
+         
       3. dotnet run --launch-profile https
          
 Ya con esto la Api estará disponible.
+
+#  Ejecutar el Frontend (Angular)
 
 Ahora, enfocandonos en el Frontend.
 
 Pasos para ejecutar: 
 
   - Abrimos una terminal y vamos a cd consumoApi.
+    
   - npm install.
+    
   - ng serve.
 
 Con eso la aplicación ya estaria disponible
 
-🔐 Flujo de Autenticación
+#  🔐 Flujo de Autenticación
 
   - El usuario inicia sesión.
 
