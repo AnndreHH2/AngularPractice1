@@ -1,59 +1,79 @@
-# ConsumoApi
+#   Sistema de Gestión de Inventario
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Aplicación Fullstack desarrollada con:
 
-## Development server
+ - Backend: .NET Core + Dapper + SQL Server
 
-To start a local development server, run:
+ - Frontend: Angular
 
-```bash
-ng serve
-```
+ - Seguridad: JWT Authentication
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+ - Base de datos con Stored Procedures
 
-## Code scaffolding
+Carpetas importantes: ConsumoApi, Script y PruebaApi.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Dentro de la carpeta Script, encontraremos el Script, ejecuta el archivo .sql para: 
 
-```bash
-ng generate component component-name
-```
+  - Crear tablas.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+  - Crear Stored Procedures.
 
-```bash
-ng generate --help
-```
+  - Ejecutar la siguiente consulta para la creacion de dos usuarios:
+    insert into dbo.Users (Username, PasswordHash, Role)
+    values 
+    (
+    'admin',
+    lower(convert(varchar(64), hashbytes('SHA2_256', 'admin123'), 2)),
+    'Admin'
+    );
 
-## Building
+    insert into dbo.Users (Username, PasswordHash, Role)
+    values 
+    (
+    'user1',
+    lower(convert(varchar(64), hashbytes('SHA2_256', 'usuario123'), 2)),
+    'User'
+    );
 
-To build the project run:
+Una vez terminada lo relacionado con la base de datos, vamos con la carpeta PruebaApi, dicha carpeta es el backend de la aplicación.
 
-```bash
-ng build
-```
+Detalles importantes: 
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+  - Editar appsettings.json: "ConnectionStrings": {
+  "DefaultConnection": "Server=Tu_Servidor;Database=Prueba;User Id=Tu_Usuario;Password=Tu_Contraseña;TrustServerCertificate=True"
+  }
 
-## Running unit tests
+  - Pasos para ejecutar:
+      1. Abrimos una terminal y vamos a cd PruebaApi.
+      2. dotnet restore.
+      3. dotnet run --launch-profile https
+         
+Ya con esto la Api estará disponible.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Ahora, enfocandonos en el Frontend.
 
-```bash
-ng test
-```
+Pasos para ejecutar: 
 
-## Running end-to-end tests
+  1. Abrimos una terminal y vamos a cd consumoApi.
+  2. npm install.
+  3. ng serve.
 
-For end-to-end (e2e) testing, run:
+Con eso la aplicación ya estaria disponible
 
-```bash
-ng e2e
-```
+🔐 Flujo de Autenticación
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+  - El usuario inicia sesión.
 
-## Additional Resources
+  - El backend valida credenciales.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+  - Se genera un JWT.
+
+  - Angular guarda el token en localStorage.
+
+  - Un interceptor agrega el token a cada request.
+
+  - Los endpoints protegidos usan [Authorize].
+
+👨‍💻 Autor
+
+Andrey Quesada
